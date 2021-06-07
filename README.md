@@ -1,5 +1,6 @@
 # Feynmans-Wobbling-Plate
 A simulation for Feynman's Wobbling Plate by using VPython
+
 Note: First Euler angle of the system is choosen to be big (omega = pi/2) for demonstratation purposes and it does not affect the wobble:spin ratio. The implementation of this code is done for a small omega which can be neglected.
 
 ## How To Use:
