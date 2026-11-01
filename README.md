@@ -1,26 +1,44 @@
-# Feynmans-Wobbling-Plate
-A simulation for Feynman's Wobbling Plate by using VPython
+# Feynman's Wobbling Plate
 
-<img src="snapshot.png"
-     alt="Screenshot"
-     style="float: left; margin-right: 10px;" 
-     width = "50%"
-     height = "50%"/>
+A visual exploration of a spinning plate, built with **Python and VPython**.
 
-Note: First Euler angle of the system is choosen to be big (omega = pi/2) for demonstratation purposes and it does not affect the wobble:spin ratio. The implementation of this code is done for a small omega which can be neglected.
+![VPython simulation of the wobbling plate](snapshot.png)
 
-## How To Use:
+## Inside the simulation
 
-1- Clone/Download the repository to your computer (check the repo address) 
+- A textured 3D plate and colored markers for its orientation.
+- Separate rotations for the plate and an axis marker.
+- Time-dependent plots of two x-coordinate signals.
 
-`git clone https://github.com/oonacitarhan/Feynmans-Wobbling-Plate.git` or just click Download ZIP and extract it
+The animation illustrates the relationship between spin and wobble. The rotation rates are prescribed in the code; this is an educational visualization rather than a general rigid-body dynamics solver.
 
+## Run locally
 
-2- Go to the directory where you cloned/downloaded the repository and install the requirements
+Use a Python environment with a graphical browser available for VPython.
 
-`pip install -r requirements.txt`
+```bash
+git clone https://github.com/oonacitarhan/Feynmans-Wobbling-Plate.git
+cd Feynmans-Wobbling-Plate
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python sim.py
+```
 
+On Windows, activate the environment with `.venv\Scripts\activate`.
 
-3- Start the simulation
+## Explore the code
 
-`python3 sim.py` or `python sim.py` 
+The simulation lives in [sim.py](sim.py). The main parameters are:
+
+| Parameter | Role |
+| --- | --- |
+| `dt` | Time increment per loop, initially `0.01`. |
+| `v` | Rotation-rate parameter, initially `pi / 2`. |
+| `omega` | Angle-related parameter used in marker setup. |
+
+The animation continues in a loop. Plot collection stops after the simulation time reaches 10 to limit plotting overhead.
+
+## Model note
+
+The original implementation uses a small-angle approximation, while `omega = pi / 2` was chosen for demonstration. Treat the visualization as an illustration of the intended motion, not a numerical validation of the approximation.
